@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Links BG</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="" class="link">Home</a></li>
+                    <li><a href="" class="link">Description</a></li>
+                    <li><a href="" class="link">Menu</a></li>
+                    <li><a href="" class="link">Contacts</a></li>
+                    <li><button class="delete">Delete BG</button></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="flex-box">
+            <main class="main">
+                <h2 class="information"><a href="" class="link">Hover</a> your mouse over the any link</h2>
+                <h1 class="title">
+                    <a href="" class="link">Lorem</a> ipsum dolor sit amet, consectetur <a href="" class="link">consectetur</a>  elit.</h1>
+    
+                <div class="text-box">
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="" class="link">Nisi</a> aperiam vel alias molestias. Voluptate nulla odio obcaecati eaque earum quod veniam nihil <a href="" class="link">exercitationem</a> qui porro. Nulla, exercitationem reprehenderit? Ipsa, assumenda!</p>
+                </div>
+                <div class="text-box">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<a href="" class="link"> Quod</a> molestias pariatur veniam veritatis eligendi itaque, iure cupiditate incidunt earum quam labore! Labore inventore maxime nam molestiae incidunt, aliquam excepturi unde.
+                    Reiciendis aliquam quisquam sapiente deserunt aut <a href="" class="link">praesentium!</a>  Delectus vel veniam voluptatibus quibusdam rem! Doloribus aspernatur architecto<a href="" class="link">architecto</a> labore quo iure! Nostrum illum odio similique molestiae quasi repellat nulla commodi nobis natus.
+                    Distinctio tenetur asperiores fugiat numquam libero fuga aut atque quos ipsum repellat doloribus commodi dolore, in consequatur qui autem molestiae id ratione reiciendis non eum! Veritatis iusto delectus quidem vitae!
+                    Quo ex obcaecati suscipit labo sapiente <a href="" class="link">deserunt</a> aut praesentium! Delectus vel veniam voluptatibus quibusdam rem! Doloribus aspernatur architecto labore quo iure! Nostrum illum odio similiq sapiente deserunt aut praesentium! Delectus vel veniam voluptatibus quibusdam rem! Doloribus aspernatur architecto labore quo iure! Nostrum illum odio <a href="" class="link">similique</a> similique molestiae quasi repellat nulla commodi nobis natus.
+                    Distinctio tenetur asperiores fugiat numquamue molestiae quasi repellat nulla commodi nobis natus.
+                    <a href="" class="link">Distinctio</a> tenetur asperiores fugiat numquamre consequuntur ad, laboriosam ut quam doloremque veniam rerum consectetur animi repellendus iusto eaque exercitationem voluptate, ipsum veritatis doloribus placeat autem. Neque, perspiciatis. Blanditiis, deleniti voluptatibus!</p>
+                </div>
+                <div class="text-box">
+                    <p>Lorem ipsum, dolor sit <a href="" class="link">amet</a>  consectetur adipisicing elit. <a href="" class="link">Laboriosam</a>, non. Iusto quos suscipit animi quia expedita eos ea corrupti iste voluptates autem ducimus distinctio, dolore harum sapiente deserunt aut praesentium! Delectus vel veniam voluptatibus quibusdam rem! Doloribus aspernatur architecto labore quo iure!<a href="" class="link">Nostrum</a>  illum odio similique molestiae quasi repellat nulla commodi nobis natus.
+                    Distinctio tenetur asperiores fugiat numquam fugiat ab odio nemo.
+                    Inventore voluptatum ex commodi? Tempore asperiores facilis <a href="" class="link">architecto</a> ea nostrum culpa quae molestiae illum, ipsa necessitatibus quisquam delectus eligendi rem odio, soluta nesciunt voluptatum. Voluptas itaque fugit illo modi ipsum!</p>
+                </div>
+            </main>
+            <aside class="aside">
+                <nav>
+                    <ul>
+                        <li><a href="" class="link">one</a></li>
+                        <li><a href="" class="link">two</a></li>
+                        <li><a href="" class="link">seven</a></li>
+                        <li><a href="" class="link">twenty one</a></li>
+                        <li><a href="" class="link">million</a></li>
+                        <li><a href="" class="link">zero</a></li>
+                        <li><a href="" class="link">forty five</a></li>
+                        <li><a href="" class="link">nine</a></li>
+                        <li><a href="" class="link">sixty six</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+        
+    </div>
+    <script>
+        const links = document.querySelectorAll('.link');
+        // этот элемент будет фоном для ссылок
+        const linkBg = document.createElement('span');
+            linkBg.classList.add('bg-color');
+            document.body.append(linkBg);
+
+        function showColorBg() {
+            //метод getBoundingClientRect() - получает все параметры элемента
+            const linkParameters = this.getBoundingClientRect();
+            
+            //размеры фона подгоянем под элемент
+            linkBg.style.width = `${linkParameters.width}px`;
+            linkBg.style.height = `${linkParameters.height}px`;
+
+
+            console.log(linkParameters.top);
+            console.log(linkParameters.top + window.scrollY);
+            // linkParameters.top + window.scrollY - на случай если был скролл страницы по Y
+            linkBg.style.transform = `translate(${linkParameters.left}px, ${linkParameters.top + window.scrollY}px)`;
+        }
+
+        //цикл по всем ссылкам и при наведении вызываем функцию
+        links.forEach ( link => {
+            link.addEventListener('mouseover', showColorBg)
+        });
+
+        document.querySelector('.delete'). addEventListener('click', () => {
+            linkBg.style.width = `0px`;
+            linkBg.style.height = `0px`;
+        });
+    </script>
+</body>
+</html>
