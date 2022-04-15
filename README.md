@@ -9,4 +9,4 @@ Technologies:
 ------
 Html CSS Native JS 
  
-для получания размеров элемента использовался метод getBoundingClientRect();
+для получения размеров элемента использовался метод getBoundingClientRect();
