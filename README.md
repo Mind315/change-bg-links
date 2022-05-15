@@ -10,3 +10,5 @@ Technologies:
 Html CSS Native JS 
  
 для получения размеров элемента использовался метод getBoundingClientRect();
+
+P.S. не запускать с touch-устройств )))
